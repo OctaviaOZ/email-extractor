@@ -29,7 +29,16 @@ pip install -r requirements.txt
 ### Running the Script
 
 1. Ensure the `credentials.json` file is in the project directory.
-2. Run the script:
+2. Create a `config.json` file in the project directory with the following content:
+
+```json
+{
+  "label": "INBOX"
+}
+```
+
+3. Update the `label` value in `config.json` to specify the folder you want to read emails from.
+4. Run the script:
 
 ```sh
 python src/gmail_extractor.py
