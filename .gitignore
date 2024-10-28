@@ -2,4 +2,8 @@ token.json
 emails.xlsx
 __pycache__/
 .vscode/
+<<<<<<< HEAD
 .venv/
+=======
+.venv/
+>>>>>>> 17cf4231706daa2acbf50ccb3ec873349a872f5b

@@ -12,6 +12,7 @@ import email
 from email import policy
 from email.parser import BytesParser
 import spacy
+import json
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
@@ -19,6 +20,7 @@ class GmailExtractor:
     def __init__(self, company_name_extractor):
         self.company_name_extractor = company_name_extractor
         self.service = self.authenticate_gmail()
+        self.label = self.read_label_from_config()
 
     def authenticate_gmail(self):
         creds = None
@@ -33,6 +35,11 @@ class GmailExtractor:
             with open('token.json', 'w') as token:
                 token.write(creds.to_json())
         return build('gmail', 'v1', credentials=creds)
+
+    def read_label_from_config(self):
+        with open('config.json', 'r') as config_file:
+            config = json.load(config_file)
+        return config.get('label', 'INBOX')
 
     def read_emails(self, user_id='me', label_ids=[]):
         try:
@@ -67,8 +74,8 @@ class GmailExtractor:
         df = pd.DataFrame(data, columns=['Sender', 'Company Name', 'Short Description', 'Date'])
         df.to_excel(filename, index=False)
 
-    def run(self, label_ids=['INBOX']):
-        messages = self.read_emails(label_ids=label_ids)
+    def run(self):
+        messages = self.read_emails(label_ids=[self.label])
         if not messages:
             print('No messages found.')
             return
