@@ -45,3 +45,17 @@ python src/gmail_extractor.py
 ```
 
 The script will read emails from the specified folder in Gmail and export the data to an Excel file named `emails.xlsx`.
+
+### .gitignore File
+
+A `.gitignore` file is used to specify which files and directories should be ignored by Git. This is useful to avoid committing sensitive information or unnecessary files to the repository.
+
+Example of a `.gitignore` file content:
+
+```
+token.json
+emails.xlsx
+__pycache__/
+.vscode/
+.venv/
+```
