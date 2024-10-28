@@ -1,0 +1,5 @@
+token.json
+emails.xlsx
+__pycache__/
+.vscode/
+.venv/
