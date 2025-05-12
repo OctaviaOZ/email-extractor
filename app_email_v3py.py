@@ -346,9 +346,6 @@ def main():
             return
 
         logger.info(f"Found {len(messages)} messages to process")
-        # Process only the first message for testing
-        messages = messages[:1]
-        logger.info("Processing only the first message for testing.")
         csv_data = prepare_csv_data(messages, service)
 
         output_dir = CONFIG['output_directory'] or os.getcwd()
