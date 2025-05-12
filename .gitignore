@@ -76,4 +76,7 @@ token.pickle
 applications.csv
 *.log
 
+# config
+config.yaml
+
 
