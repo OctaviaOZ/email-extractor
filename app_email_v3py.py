@@ -236,12 +236,12 @@ def get_message_details(service, message_id: str) -> Tuple[Optional[str], Option
         # Add a small delay between requests to avoid rate limiting
         time.sleep(0.1)
         
-        # Add timeout to the request
+        # Get message details without timeout parameter
         message = service.users().messages().get(
             userId='me',
             id=message_id,
             format='full'
-        ).execute(timeout=30)  # 30 second timeout
+        ).execute()
         
         headers = {header['name']: header['value'] for header in message['payload']['headers']}
         
