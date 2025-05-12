@@ -1,0 +1,82 @@
+# Gmail Message Extractor Configuration
+
+# Gmail API settings
+credentials_file: 'credentials.json'
+token_file: 'token.pickle'
+
+# Message filtering
+label_name: 'apply'
+skip_domains:
+  - 'gmail.com'
+  - 'jobagent.stepstone.de'
+  - 'indeed.com'
+  - 'linkedin.com'
+
+# Company name extraction
+special_domains:
+  - 'myworkday.com'
+  - 'smartrecruiters.com'
+  - 'join.com'
+
+subject_domains:
+  - 'us.greenhouse-mail.io'
+  - 'successfactors.com'
+
+# Output settings
+output_directory: ''  # Leave empty for current directory
+output_filename: 'applications.csv'
+
+# CSV column settings
+csv_columns:
+  - 'Year'
+  - 'Month'
+  - 'Day'
+  - 'Date'
+  - 'Domain'
+  - 'Sender Name'
+  - 'Subject'
+  - 'User Name'
+  - 'Company Name'
+
+# Content analysis settings
+content_analysis:
+  application_keywords:
+    - 'apply'
+    - 'application'
+    - 'job'
+    - 'position'
+    - 'career'
+    - 'recruitment'
+    - 'hiring'
+    - 'vacancy'
+    - 'opening'
+  application_domains:
+    - 'workday'
+    - 'greenhouse'
+    - 'lever'
+    - 'smartrecruiters'
+    - 'jobvite'
+    - 'bamboohr'
+    - 'icims'
+    - 'taleo'
+  min_word_count: 10
+  max_word_count: 1000
+
+# Performance settings
+max_workers: 4  # Number of parallel workers for processing
+batch_size: 100  # Number of messages to process in each batch
+max_retries: 3
+retry_delay: 5  # in seconds
+
+# Date parsing
+date_formats:
+  - '%a, %d %b %Y %H:%M:%S %z'  # e.g., Tue, 16 Apr 2024 16:28:31 +0200 (CEST)
+  - '%a, %d %b %Y %H:%M:%S %Z'  # e.g., Tue, 16 Apr 2024 11:08:22 +0000
+  - '%m/%d/%Y %I:%M:%S %p'      # e.g., 4/15/2024 5:28:11 AM
+
+# Logging
+log_file: 'gmail_extractor.log'
+log_level: 'INFO'  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+# Start date for message extraction
+start_date: '2025-04-08'  # Format: YYYY-MM-DD
