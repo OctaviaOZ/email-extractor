@@ -73,4 +73,6 @@ build/
 # creds
 credentials.json
 token.pickle
+applications.csv
+
 
