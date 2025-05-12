@@ -69,3 +69,7 @@ yarn.lock
 dist/
 build/
 *.pyc 
+
+# creds
+credentials.json
+token.pickle
