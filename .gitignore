@@ -74,5 +74,6 @@ build/
 credentials.json
 token.pickle
 applications.csv
+*.log
 
 
